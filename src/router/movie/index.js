@@ -1,0 +1,27 @@
+export default{
+    path:'/movie',
+    component:()=>import('@/views/Movie'),
+    //二级路由
+    children:[
+        {
+            path:'city',
+            component:()=>import('@/components/City')
+        },
+        {
+            path:'nowPlaying',
+            component:()=>import('@/components/NowPlaying')
+        },
+        {
+            path:'comingSoon',
+            component:()=>import('@/components/ComingSoon')
+        },
+        {
+            path:'search',
+            component:()=>import('@/components/Search')
+        },
+        {//当页面刚开始时重定向到nowplaying页面
+            path:'/movie',
+            redirect:'/movie/nowPlaying'
+        }
+    ]
+}
