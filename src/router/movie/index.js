@@ -19,6 +19,28 @@ export default{
             path:'search',
             component:()=>import('@/components/Search')
         },
+        {
+            path:'detail/1/:movieId',
+            components:{
+                default:()=>import('@/components/NowPlaying'),
+                //detail与detail.vue中的router-view里的name相同名
+                detail:()=>import('@/views/Movie/detail')
+            },
+            props:{
+                detail:true
+            }
+        },
+        {
+            path:'detail/2/:movieId',
+            components:{
+                default:()=>import('@/components/ComingSoon'),
+                //detail与detail.vue中的router-view里的name相同名
+                detail:()=>import('@/views/Movie/detail')
+            },
+            props:{
+                detail:true
+            }
+        },
         {//当页面刚开始时重定向到nowplaying页面
             path:'/movie',
             redirect:'/movie/nowPlaying'
